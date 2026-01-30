@@ -1,8 +1,18 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import SectionHead from './SectionHead';
+import Image from 'next/image';
 
 export default function Facilities({ data }) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
   return (
     <section className="">
       <div className="bg-white pb-0 md:pb-96">
@@ -15,10 +25,12 @@ export default function Facilities({ data }) {
         </div>
 
         <div className="facilities-gradient relative">
-           <img
+           <Image
+            width={100}
+            height={100}
             src="/images/trophy.png"
             alt="Trophy"
-            className="absolute right-0 w-auto h-[7%] md:h-5/6 z-0 opacity-25 bottom-0"
+            className="absolute right-0 w-auto h-[7%] md:h-5/6 z-0 opacity-10 bottom-0"
           />
           {/* Facilities Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 md:p-0 max-w-284 md:mx-auto md:pt-64 md:pb-64">
@@ -27,7 +39,7 @@ export default function Facilities({ data }) {
                 key={index}
                 className="relative md:absolute group w-full md:w-96.5"
                 style={
-                  window.innerWidth >= 768 ? (
+                  isDesktop ? (
                     index === 0 ? { top: '-170px' } :
                     index === 1 ? { top: '-170px', right: '440px' } :
                     index === 2 ? { bottom: '-290px', right: '600px' } :
@@ -38,7 +50,9 @@ export default function Facilities({ data }) {
               >
                 {/* Image Container */}
                 <div className="relative h-64 md:h-72 overflow-hidden rounded-lg mb-4">
-                  <img
+                  <Image
+                    width={400}
+                    height={100}
                     src={facility.image}
                     alt={facility.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -67,7 +81,7 @@ export default function Facilities({ data }) {
                 <div>
                   <h3 className="font-matter text-xl font-semibold text-white mb-3"
                     style={
-                      window.innerWidth >= 768 ? (index === 2 ? { color: 'black' } :
+                      isDesktop ? (index === 2 ? { color: 'black' } :
                         index === 3 ? { color: 'black' } :
                           {}) : {}
                     }
@@ -82,7 +96,7 @@ export default function Facilities({ data }) {
                         key={tagIndex}
                         className="inline-block px-3 py-1 bg-primary text-white text-xs font-matter rounded-full"
                         style={
-                           window.innerWidth >= 768 ? (index === 2 ? { color: 'white', background: '#99b81b', fontWeight: '300' } :
+                           isDesktop ? (index === 2 ? { color: 'white', background: '#99b81b', fontWeight: '300' } :
                             index === 3 ? { color: 'white', background: '#99b81b', fontWeight: '300' } :
                               {}) : {}
                         }
@@ -95,7 +109,7 @@ export default function Facilities({ data }) {
                   {/* Description */}
                   <p className="font-matter text-sm text-white leading-relaxed"
                     style={
-                      window.innerWidth >= 768 ? (index === 0 ? { color: 'white' } :
+                      isDesktop ? (index === 0 ? { color: 'white' } :
                         index === 1 ? { color: 'white' } :
                           index === 2 ? { color: 'black' } :
                             index === 3 ? { color: 'black' } :

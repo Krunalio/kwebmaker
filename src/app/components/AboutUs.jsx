@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import SectionHead from './SectionHead';
 import Button from './Button';
+import Image from 'next/image';
 
 export default function AboutUs({ data }) {
   const [activeTab, setActiveTab] = useState('about');
@@ -123,9 +124,11 @@ export default function AboutUs({ data }) {
                   className={`col-span-1 sm:col-span-1 ${image.colSpan} ${image.height} flex flex-col bg-gray-50 overflow-hidden group`}
                 >
                   <Link href="/" className="relative flex flex-col overflow-hidden px-4 pb-4 pt-40 grow">
-                    <img
+                    <Image
                       src={image.src}
                       alt={image.title}
+                      width={300}
+                      height={300}
                       className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                     />
                     {/* <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5"></div> */}

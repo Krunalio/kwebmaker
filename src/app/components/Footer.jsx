@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer({ data }) {
   if (!data) return null;
@@ -35,12 +36,12 @@ export default function Footer({ data }) {
                 >
                   {row.links?.map((link) => (
                     <li key={link.id || link.label}>
-                      <a
+                      <Link
                         href={link.href}
                         className="hover:text-primary transition-colors"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -60,12 +61,12 @@ export default function Footer({ data }) {
                 <li key={item.id || item.label} className="flex items-start gap-3">
                   <span className="text-primary mt-0.5">{item.icon}</span>
                   {item.href ? (
-                    <a
+                    <Link
                       href={item.href}
                       className="hover:text-primary transition-colors text-[16px]"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   ) : (
                     <span className='text-[16px]'>{item.label}</span>
                   )}
@@ -81,14 +82,14 @@ export default function Footer({ data }) {
             </h4>
             <div className="flex items-center gap-4">
               {data.social?.links?.map((link) => (
-                <a
+                <Link
                   key={link.id || link.label}
                   href={link.href}
                   aria-label={link.label}
                   className="text-gray-700 hover:text-primary transition-colors"
                 >
                   {link.icon}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -99,13 +100,13 @@ export default function Footer({ data }) {
       <div className="bg-gradient-to-r from-[#0C5060] to-primary">
         <div className="max-w-284 mx-auto px-4 py-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-xs text-white">
           {data.bottomBar?.map((item) => (
-            <a
+            <Link
               key={item.id || item.label}
               href={item.href}
               className="hover:underline font-matter font-normal"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

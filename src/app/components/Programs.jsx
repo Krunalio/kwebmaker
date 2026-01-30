@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Button from './Button';
 import SectionHead from './SectionHead';
 
@@ -23,7 +24,9 @@ export default function Programs({ data }) {
               key={card.id}
               className={`relative overflow-hidden rounded-2xl group ${card.isActive ? 'ring-2 ring-blue-500' : ''}`}
             >
-              <img
+              <Image
+                width={400}
+                height={400}
                 src={card.image}
                 alt={card.title}
                 className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"

@@ -33,7 +33,7 @@ export default function CoachesEvents({ data }) {
             </div>
           )}
           <div className="relative z-10 h-full flex flex-col justify-center p-8 md:p-16 lg:p-20">
-           <SectionHead title={section.title} description={section.description} DescclassList='font-extralight text-white w-1/2 pb-9' TitleclassList='text-white section-head-title-white'/>
+           <SectionHead title={section.title} description={section.description} DescclassList='font-extralight text-white w-full md:w-1/2 pb-9' TitleclassList='text-white section-head-title-white'/>
             
             <div className="flex items-center gap-2 text-white cursor-pointer group">
               <span className="text-base font-light">{section.linkText}</span>

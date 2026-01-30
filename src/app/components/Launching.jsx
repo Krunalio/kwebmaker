@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Launching({ data }) {
   return (
     <section className="min-h-screen flex flex-col md:flex-row items-stretch">
@@ -45,7 +47,9 @@ export default function Launching({ data }) {
 
       {/* Right Side - Image */}
       <div className="w-full md:w-[58%] h-64 md:h-auto">
-        <img
+        <Image
+          width={400}
+          height={300}
           src={data.coverImage}
           alt={data.title}
           className="w-full h-full object-cover"

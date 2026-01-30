@@ -15,7 +15,7 @@ export default function Testimonial({ data }) {
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <div className="text-white">
           <p className="text-xl md:text-3xl font-matter font-semibold mb-8 leading-relaxed w-full md:w-[81%] border-0 border-b pb-9">
-            "{data.quote}"
+            &ldquo;{data.quote}&rdquo;
           </p>
 
           {/* Author Info */}

@@ -1,5 +1,6 @@
 import SectionHead from './SectionHead';
 import Button from './Button';
+import Image from 'next/image';
 
 export default function Professionals({ data }) {
   return (
@@ -24,7 +25,9 @@ export default function Professionals({ data }) {
             <div key={index} className="flex flex-col">
               {/* Image */}
               <div className="mb-6 overflow-hidden rounded-lg h-80">
-                <img
+                <Image
+                  width={400}
+                  height={400}
                   src={professional.image}
                   alt={professional.name}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"

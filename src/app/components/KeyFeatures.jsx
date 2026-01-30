@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Button from './Button';
 import SectionHead from './SectionHead';
 
@@ -60,9 +61,11 @@ export default function KeyFeatures({ data, glimpsData }) {
               key={index}
               className={`relative overflow-hidden rounded-lg ${image.colSpan || ''}`}
             >
-              <img
+              <Image
                 src={image.src}
                 alt={image.alt}
+                width={400}
+                height={300}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out"
                 style={{ minHeight: image.height || '300px' }}
               />
