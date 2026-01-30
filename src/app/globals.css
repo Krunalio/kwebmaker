@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-matter: var(--font-matter);
+  
+  --color-primary: #99B81B;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+
+.slider-title::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background-color: #D2F24F;
+  margin-left: 9px;
+  width: 44px;
+}
+.section-head-title::after {
+  content: '';
+  position: absolute;
+  top: -11px;
+  right: -11px;
+  width: 10px;
+  height: 10px;
+  min-height: 10px;
+  min-width: 10px;
+  background-color: #99B81B;
+  border-radius: 100%;
+}
+
+.section-head-title-white::after {
+  content: '';
+  position: absolute;
+  top: -11px;
+  right: -11px;
+  width: 10px;
+  height: 10px;
+  min-height: 10px;
+  min-width: 10px;
+  background-color: white;
+  border-radius: 100%;
+}
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: max-content;
+  animation: marquee-scroll 18s linear infinite;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--font-matter);
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.marquee__dot {
+  color: #99B81B;
+  font-size: 22px;
+}
+
+.marquee-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #99B81B;
+  text-stroke: 1px #99B81B;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Footer grid areas */
+.footer-grid {
+  grid-template-areas:
+    "logo topNavigation topNavigation"
+    "logo contact social"
+    "logo contact social";
+}
+
+.footer-grid__logo {
+  grid-area: logo;
+}
+
+.footer-grid__nav {
+  grid-area: topNavigation;
+}
+
+.footer-grid__contact {
+  grid-area: contact;
+}
+
+.footer-grid__social {
+  grid-area: social;
+}
+
+/* Facilities gradient background */
+.facilities-gradient {
+  background: linear-gradient(103.14deg, #002F50 11.16%, #99B81B 111.06%);
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "topNavigation"
+      "contact"
+      "social";
+  }
+}
